@@ -1,0 +1,27 @@
+# SecureAI Business & Finance Ecosystem
+
+Successfully transformed the SecureAI system from personal finance to a fully automated business financial ecosystem with backend auto-blockchain logging.
+
+## Core Features Implemented
+
+### 1. Business-Oriented Models
+- Enhanced [UserProfile](file:///d:/Final%20Year%20Project/SecureAI_Finance_Smart_system/backend/finance_app/models.py#144-162) to include business identity details such as `company_name`, `industry`, and `tax_id`.
+- Expanded [Account](file:///d:/Final%20Year%20Project/SecureAI_Finance_Smart_system/backend/finance_app/models.py#73-92) types to include `corporate`, `payroll`, and `operational` accounts.
+
+### 2. Auto-Blockchain Security Logging
+- Removed human-facing blockchain operations. The UI is now clean of complex web3 tasks.
+- Whenever an employee or system creates a [Transaction](file:///d:/Final%20Year%20Project/SecureAI_Finance_Smart_system/backend/finance_app/models.py#93-108) via the [TransactionViewSet](file:///d:/Final%20Year%20Project/SecureAI_Finance_Smart_system/backend/finance_app/blockchain_views.py#180-289), the backend automatically generates an invisible [EthereumWallet](file:///d:/Final%20Year%20Project/SecureAI_Finance_Smart_system/backend/finance_app/models.py#6-23) identity (if one doesn't exist) and executes a `0.0 ETH` verification self-transaction. 
+- This transaction hash is automatically logged as a secure audit record in [BlockchainTransaction](file:///d:/Final%20Year%20Project/SecureAI_Finance_Smart_system/backend/finance_app/models.py#25-51), thereby bringing the security of a decentralized ledger entirely to the backend.
+
+### 3. AI Predictive Models for Businesses
+- Setup [AIPredictionsPage](file:///d:/Final%20Year%20Project/SecureAI_Finance_Smart_system/frontend/src/pages/AIPredictionsPage.jsx#8-178) on the frontend, which now connects to backend AI modules mimicking `scikit-learn` predictive algorithms.
+- Supported operations:
+  - **Revenue Forecast**: Predicts 30/60/90-plus days of future Corporate Revenue including bounds and confidence rates.
+  - **Growth Analysis**: Analyzes trends indicating whether the business is expanding.
+  - **Fraud Detection**: Inspects transaction volumes to isolate anomalies.
+  - **Financial Health Assessment**: Rates overall operational health in Real-time based on ratios of operational expenses to corporate revenue and savings rates.
+
+## View Changes
+
+- Run `python manage.py runserver` to deploy the backend.
+- Run `npm run dev` in `/frontend` to explore the business-centric UI, specifically the `AI Predictions` portal and the `Dashboard`.
